@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "types", "app", "components", "src/i18n", "src/app/[locale]", "src/app/api/todos", "src/app/api/articles", "next.config.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "types", "app", "src/components", "src/i18n", "src/app/[locale]", "src/app/api/todos", "src/app/api/articles", "next.config.js"],
   "exclude": ["node_modules"]
 }
