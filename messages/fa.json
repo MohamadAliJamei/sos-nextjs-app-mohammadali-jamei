@@ -1,5 +1,9 @@
 {
   "home": {
+    "meta": {
+      "title": "sos-nextjs-Jamei | صفحه اصلی",
+      "description": "لیست مقالات و لیست کارها"
+    },
     "articles": "مقالات",
     "todo": "لیست کارها"
   }

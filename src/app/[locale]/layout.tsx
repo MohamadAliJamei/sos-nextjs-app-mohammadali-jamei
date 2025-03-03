@@ -3,6 +3,11 @@ import Providers from "../providers";
 import {getMessages} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import { routing } from "@/src/i18n/routing";
+import { generateMetadata as createMetadata } from '@/lib/metadata';
+
+export async function generateMetadata() {
+  return createMetadata('home')
+}
 
 export default async function LocaleLayout({
   children,
@@ -22,7 +27,7 @@ export default async function LocaleLayout({
     <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <Providers>{children}</Providers>
         </NextIntlClientProvider>
       </body>
     </html>

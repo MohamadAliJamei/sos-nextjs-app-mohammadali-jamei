@@ -1,5 +1,9 @@
 {
   "home": {
+    "meta": {
+      "title": "sos-nextjs-Jamei | Home",
+      "description": "The articles list and the to-do list"
+    },
     "articles": "Articles",
     "todo": "To-Do List"
   }
