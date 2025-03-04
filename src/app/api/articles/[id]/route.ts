@@ -9,6 +9,9 @@ const articles = [
   { id: '6', title: "مقاله ششم", content: "محتوای مقاله ششم", image: "/images/articles/article6.png" },
 ];
 
-export async function GET() {
-  return NextResponse.json(articles);
+export async function GET(req: Request, { params }: { params: { id: string } }) {
+  const article = articles.find((a) => a.id === params.id);
+  if (!article) return NextResponse.json({ message: "مقاله پیدا نشد" }, { status: 404 });
+
+  return NextResponse.json(article);
 }

@@ -4,8 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-export default function Header() {
-  const t = useTranslations('header');
+type props = {
+  locale: string;
+};
+export default function Header(props: props) {
+  const { locale } = props;
+  const t = useTranslations("header");
   return (
     <header>
       <Box
@@ -22,42 +26,68 @@ export default function Header() {
           >
             <Grid2 container gap={1} alignItems={"center"} component={"nav"}>
               <Grid2>
-                <Link href={"/"}>
+                <Link href={`/${locale}`}>
                   <Image
                     src={"/images/logo/sos-logo.png"}
                     alt={"Logo"}
                     width={198}
                     height={40}
+                    priority={false}
                   />
                 </Link>
               </Grid2>
-              <Grid2 component={"a"} href={"/"} px={{md: 1, lg: 4}} py={1}>
+              <Grid2
+                component={"a"}
+                href={`/${locale}`}
+                px={{ md: 1, lg: 4 }}
+                py={1}
+              >
                 <Typography variant={"button"} color="primary">
                   {t("home")}
                 </Typography>
               </Grid2>
-              <Grid2 component={"a"} href={"/"} px={{md: 1, lg: 4}} py={1}>
+              <Grid2
+                component={"a"}
+                href={`/${locale}/todo-list`}
+                px={{ md: 1, lg: 4 }}
+                py={1}
+              >
                 <Typography variant={"button"} color="primary">
                   {t("todoList")}
                 </Typography>
               </Grid2>
-              <Grid2 component={"a"} href={"/"} px={{md: 1, lg: 4}} py={1}>
+              <Grid2
+                component={"a"}
+                href={`/${locale}`}
+                px={{ md: 1, lg: 4 }}
+                py={1}
+              >
                 <Typography variant={"button"} color="primary">
                   {t("medicalServiceCenters")}
                 </Typography>
               </Grid2>
-              <Grid2 component={"a"} href={"/"} px={{md: 1, lg: 4}} py={1}>
+              <Grid2
+                component={"a"}
+                href={`/${locale}`}
+                px={{ md: 1, lg: 4 }}
+                py={1}
+              >
                 <Typography variant={"button"} color="primary">
                   {t("branches")}
                 </Typography>
               </Grid2>
-              <Grid2 component={"a"} href={"/"} px={{md: 1, lg: 4}} py={1}>
+              <Grid2
+                component={"a"}
+                href={`/${locale}`}
+                px={{ md: 1, lg: 4 }}
+                py={1}
+              >
                 <Typography variant={"button"} color="primary">
                   {t("faq")}
                 </Typography>
               </Grid2>
             </Grid2>
-            <Grid2 container alignItems={'center'} gap={1}>
+            <Grid2 container alignItems={"center"} gap={1}>
               <LanguageSwitcher />
               <Button variant="contained" size="medium">
                 {t("login")}
