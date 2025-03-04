@@ -1,4 +1,10 @@
 {
+  "common": {
+    "loading": "loading...",
+    "error": "error",
+    "continue": "continue",
+    "cancel": "cancel"
+  },
   "home": {
     "meta": {
       "title": "sos-nextjs-Jamei | Home",

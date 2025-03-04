@@ -1,4 +1,10 @@
 {
+  "common": {
+    "loading": "در حال بارگذاری...",
+    "error": "خطا",
+    "continue": "ادامه",
+    "cancel": "لغو"
+  },
   "home": {
     "meta": {
       "title": "sos-nextjs-Jamei | صفحه اصلی",

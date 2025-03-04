@@ -7,6 +7,15 @@ export const getTheme = (locale: "fa" | "en") =>
       direction: locale === "fa" ? "rtl" : "ltr",
       typography: {
         fontFamily: locale === "fa" ? "IRANSans" : "Arial",
+        h2: {
+          fontSize: "1rem",
+          fontWeight: 600,
+          color: '#121212'
+        },
+        body1: {
+          fontSize: "0.875rem",
+          fontWeight: 400,
+        }
       },
       breakpoints: {
         values: {
@@ -27,6 +36,13 @@ export const getTheme = (locale: "fa" | "en") =>
         secondary: {
           main: "#EE1D25",
         },
+        text: {
+          primary: "#121212",
+        },
+        grey: {
+          '300': '#9E9E9E',
+          '400': '#767676'
+        }
       },
       components: {
         MuiContainer: {
@@ -46,6 +62,7 @@ export const getTheme = (locale: "fa" | "en") =>
               },
               '@media (min-width:1600px)': {
                 maxWidth: '1440px',
+                padding: 0,
               },
             },
           },
@@ -70,6 +87,18 @@ export const getTheme = (locale: "fa" | "en") =>
             }
           },
         },
+        MuiCard: {
+          styleOverrides: {
+            root:({theme}) => ({
+              borderRadius: 16,
+              border: "1px solid",
+              borderColor: theme.palette.primary.main,
+              boxShadow: "unset",
+              padding: 16,
+              maxWidth: 348
+            }),
+          },
+        }
       },
     },
     locale === "fa" ? faIR : enUS
