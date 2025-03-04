@@ -6,5 +6,13 @@
     },
     "articles": "مقالات",
     "todo": "لیست کارها"
+  },
+  "header": {
+    "home": "صفحه اصلی",
+    "todoList": "todo list",
+    "medicalServiceCenters": "مراکز خدمات درمانی",
+    "branches": "شعبه‌های ما",
+    "faq": "سوال‌‌های متداول",
+    "login": "ورود و فعال سازی"
   }
 }

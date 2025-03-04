@@ -6,5 +6,13 @@
     },
     "articles": "Articles",
     "todo": "To-Do List"
+  },
+  "header": {
+    "home": "home",
+    "todoList": "todo list",
+    "medicalServiceCenters": "medical service centers",
+    "branches": "our branches",
+    "faq": "faq",
+    "login": "login"
   }
 }

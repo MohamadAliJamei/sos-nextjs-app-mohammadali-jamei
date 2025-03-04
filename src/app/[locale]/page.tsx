@@ -14,7 +14,7 @@ export default async function HomePage() {
         {articles.map((article: { id: number; title: string, image: string }) => (
           <ListItem key={article.id} component="a" href={`/articles/${article.id}`}>
             <ListItemText primary={article.title} />
-            <Image src={article.image} alt={article.title} width={316}  height={158} />
+            <Image src={article.image} alt={article.title} width={316}  height={158} priority />
           </ListItem>
         ))}
       </List>
