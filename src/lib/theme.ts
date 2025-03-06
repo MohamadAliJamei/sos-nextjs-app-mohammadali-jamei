@@ -40,6 +40,7 @@ export const getTheme = (locale: "fa" | "en") =>
           primary: "#121212",
         },
         grey: {
+          '100': '#e5e5e5',
           '300': '#9E9E9E',
           '400': '#767676'
         }

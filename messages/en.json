@@ -3,7 +3,10 @@
     "loading": "loading...",
     "error": "error",
     "continue": "continue",
-    "cancel": "cancel"
+    "cancel": "cancel",
+    "add": "add",
+    "delete": "delete",
+    "edit": "edit"
   },
   "home": {
     "meta": {
@@ -20,5 +23,9 @@
     "branches": "our branches",
     "faq": "faq",
     "login": "login"
+  },
+  "todoList": {
+    "todoList": "todo list",
+    "addTodo": "Add a new to-do"
   }
 }
