@@ -5,7 +5,8 @@ import { notFound } from "next/navigation";
 import { routing } from "@/src/i18n/routing";
 import { generateMetadata as createMetadata } from "@/src/lib/metadata";
 import Header from "@/src/components/common/header";
-import '../globals.css'
+import "../globals.css";
+import { CssBaseline } from "@mui/material";
 
 export async function generateMetadata() {
   return createMetadata("home");
@@ -30,6 +31,7 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <Providers>
+            <CssBaseline />
             <Header locale={locale} />
             {children}
           </Providers>

@@ -1,4 +1,11 @@
-import { Box, Button, Container, Grid2, Typography } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  Grid2,
+  Typography,
+} from "@mui/material";
 import LanguageSwitcher from "../LanguageSwitcher";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,8 +17,17 @@ type props = {
 export default function Header(props: props) {
   const { locale } = props;
   const t = useTranslations("header");
+
+
+  const navItems = [
+    { id: 1, label: t("home"), href: `/${locale}` },
+    { id: 2, label: t("todoList"), href: `${locale}/todo-list` },
+    { id: 3, label: t("medicalServiceCenters"), href: `/${locale}` },
+    { id: 4, label: t("branches"), href: `/${locale}` },
+    { id: 5, label: t("faq"), href: `/${locale}` },
+  ];
   return (
-    <header>
+    <AppBar color="inherit">
       <Box
         sx={{
           boxShadow: "0px 8px 8px 0px #12121233",
@@ -36,56 +52,22 @@ export default function Header(props: props) {
                   />
                 </Link>
               </Grid2>
-              <Grid2
-                component={"a"}
-                href={`/${locale}`}
-                px={{ md: 1, lg: 4 }}
-                py={1}
-              >
-                <Typography variant={"button"} color="primary">
-                  {t("home")}
-                </Typography>
-              </Grid2>
-              <Grid2
-                component={"a"}
-                href={`/${locale}/todo-list`}
-                px={{ md: 1, lg: 4 }}
-                py={1}
-              >
-                <Typography variant={"button"} color="primary">
-                  {t("todoList")}
-                </Typography>
-              </Grid2>
-              <Grid2
-                component={"a"}
-                href={`/${locale}`}
-                px={{ md: 1, lg: 4 }}
-                py={1}
-              >
-                <Typography variant={"button"} color="primary">
-                  {t("medicalServiceCenters")}
-                </Typography>
-              </Grid2>
-              <Grid2
-                component={"a"}
-                href={`/${locale}`}
-                px={{ md: 1, lg: 4 }}
-                py={1}
-              >
-                <Typography variant={"button"} color="primary">
-                  {t("branches")}
-                </Typography>
-              </Grid2>
-              <Grid2
-                component={"a"}
-                href={`/${locale}`}
-                px={{ md: 1, lg: 4 }}
-                py={1}
-              >
-                <Typography variant={"button"} color="primary">
-                  {t("faq")}
-                </Typography>
-              </Grid2>
+              {
+                navItems.map((item) => (
+                  <Grid2
+                  className="nav-item"
+                    key={item.id}
+                    component={"a"}
+                    href={item.href}
+                    px={{ md: 1, lg: 4 }}
+                    py={1}
+                    
+                  >
+                    <Typography variant={"button"} color="primary">
+                      {item.label}
+                    </Typography>
+                  </Grid2>
+                ))}
             </Grid2>
             <Grid2 container alignItems={"center"} gap={1}>
               <LanguageSwitcher />
@@ -96,6 +78,6 @@ export default function Header(props: props) {
           </Grid2>
         </Container>
       </Box>
-    </header>
+    </AppBar>
   );
 }
