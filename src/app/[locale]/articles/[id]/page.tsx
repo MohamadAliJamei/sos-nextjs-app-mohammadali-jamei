@@ -7,8 +7,9 @@ type Props = {
 };
 
 async function getArticle(id: string) {
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000";
   try {
-    const res = await fetch(`http://localhost:3000/api/articles/${id}`);
+    const res = await fetch(`${BASE_URL}/api/articles/${id}`);
     if (!res.ok) return null;
     return res.json();
   } catch (error) {

@@ -7,7 +7,8 @@ type props = {
   params: { locale: string };
 };
 export default async function HomePage(props: props) {
-  const res = await fetch("http://localhost:3000/api/articles", {
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000"
+  const res = await fetch(`${BASE_URL}/api/articles`, {
     cache: "no-store",
   });
   const articles = await res.json();

@@ -15,11 +15,13 @@ export default function TodoList() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [newTodo, setNewTodo] = useState("");
 
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000";
+
   const t = useTranslations("todoList");
   const tCommon = useTranslations("common");
 
   useEffect(() => {
-    fetch("/api/todos")
+    fetch(`${BASE_URL}/api/todos`)
       .then((res) => res.json())
       .then((data) => setTodos(data))
       .catch((err) => console.error("Error in get todos", err));
@@ -27,7 +29,7 @@ export default function TodoList() {
 
   const addTodo = async () => {
     if (newTodo.trim() === "") return;
-    const res = await fetch("/api/todos", {
+    const res = await fetch(`${BASE_URL}/api/todos`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: newTodo }),
@@ -40,9 +42,8 @@ export default function TodoList() {
     }
   };
 
-  // 📌 تغییر وضعیت تسک
   const toggleTodo = async (id: number, completed: boolean) => {
-    await fetch(`/api/todos/${id}`, {
+    await fetch(`${BASE_URL}/api/todos/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ completed: !completed }),
@@ -52,7 +53,7 @@ export default function TodoList() {
   };
 
   const deleteTodo = async (id: number) => {
-    await fetch(`/api/todos/${id}`, { method: "DELETE" });
+    await fetch(`${BASE_URL}/api/todos/${id}`, { method: "DELETE" });
 
     setTodos(todos.filter((todo) => todo.id !== id));
   };
