@@ -28,5 +28,7 @@ export default function LanguageSwitcher() {
       .catch((err) => console.error("Error updating locale:", err));
   };
   
-  return <Button variant="text" onClick={() => changeLocale(newLocale)}>{newLocale === "fa" ? "فارسی" : "English"}</Button>
+  return <Button sx={{
+    minWidth: {xs: '16px', lg: "64px"}
+  }} variant="text" size="small" onClick={() => changeLocale(newLocale)}>{newLocale}</Button>
 }

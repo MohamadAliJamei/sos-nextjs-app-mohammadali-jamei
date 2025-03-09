@@ -6,7 +6,7 @@ import { routing } from "@/src/i18n/routing";
 import { generateMetadata as createMetadata } from "@/src/lib/metadata";
 import Header from "@/src/components/common/header";
 import "../globals.css";
-import { CssBaseline } from "@mui/material";
+import { CssBaseline, Grid2 } from "@mui/material";
 
 export async function generateMetadata() {
   return createMetadata("home");
@@ -33,7 +33,7 @@ export default async function LocaleLayout({
           <Providers>
             <CssBaseline />
             <Header locale={locale} />
-            {children}
+            <Grid2 sx={{ mt: 12 }}>{children}</Grid2>
           </Providers>
         </NextIntlClientProvider>
       </body>
