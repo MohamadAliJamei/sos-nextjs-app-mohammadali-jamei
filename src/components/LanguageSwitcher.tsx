@@ -1,14 +1,32 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Button } from "@mui/material";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function LanguageSwitcher() {
   const pathname = usePathname();
 
   const currentLocale = pathname.split("/")[1];
   const newLocale = currentLocale === "fa" ? "en" : "fa";
-  const newPath = `/${newLocale}${pathname.substring(3)}`;
+  const router = useRouter();
 
-  return <Link href={newPath}>{newLocale === "fa" ? "فارسی" : "English"}</Link>;
+  const changeLocale = (newLocale: string) => {
+    fetch("/api/locale", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ locale: newLocale }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          const newPath = `/${newLocale}${pathname.replace(/^\/(fa|en)/, "")}`;
+          router.push(newPath);
+        }
+      })
+      .catch((err) => console.error("Error updating locale:", err));
+  };
+  
+  return <Button variant="text" onClick={() => changeLocale(newLocale)}>{newLocale === "fa" ? "فارسی" : "English"}</Button>
 }
