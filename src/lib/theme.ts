@@ -22,7 +22,7 @@ export const getTheme = (locale: "fa" | "en") =>
           xs: 0,
           sm: 600,
           md: 960,
-          lg: 1280,
+          lg: 1200,
           xl: 1600,
         },
       },
@@ -58,8 +58,8 @@ export const getTheme = (locale: "fa" | "en") =>
               '@media (min-width:960px)': {
                 maxWidth: '800px',
               },
-              '@media (min-width:1280px)': {
-                maxWidth: '1200px',
+              '@media (min-width:1200px)': {
+                maxWidth: '1180px',
               },
               '@media (min-width:1600px)': {
                 maxWidth: '1440px',
